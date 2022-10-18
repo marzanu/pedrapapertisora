@@ -1,3 +1,7 @@
+radio.onReceivedNumber(function (receivedNumber) {
+    recibido = true
+    manoponente = receivedNumber
+})
 input.onButtonPressed(Button.A, function () {
     cuento = cuento + 1
     cuento = cuento % 3
@@ -7,31 +11,57 @@ input.onButtonPressed(Button.A, function () {
     if (mimano == 2) {
         basic.showIcon(IconNames.Square)
     }
-    if (mimano == 0) {
-        basic.showIcon(IconNames.Square)
+    if (mimano == 3) {
+        basic.showIcon(IconNames.Scissors)
     }
+})
+radio.onReceivedString(function (receivedString) {
+    manoponente = 0
 })
 input.onButtonPressed(Button.B, function () {
     escogido = true
     radio.sendNumber(mimano)
 })
-let recibido = false
 let escogido = false
+let manoponente = 0
+let recibido = false
 let mimano = 0
 let cuento = 0
 radio.setGroup(32)
 cuento = 0
 mimano = 0
 basic.forever(function () {
-    let manoponente = 0
-    if (escogido == true && recibido == true) {
-        escogido = false
-        recibido = false
-    } else if (manoponente == mimano) {
+    escogido = false
+    recibido = false
+    if (manoponente == mimano) {
         basic.showIcon(IconNames.No)
-    } else if (manoponente == 1 && mimano == 2) {
-    	
     } else {
-    	
+        if (mimano == 1 && manoponente == 2) {
+            basic.showIcon(IconNames.Sad)
+        } else {
+            if (mimano == 1 && manoponente == 3) {
+                basic.showIcon(IconNames.Happy)
+            } else {
+                if (mimano == 2 && manoponente == 1) {
+                    basic.showIcon(IconNames.Happy)
+                } else {
+                    if (mimano == 2 && manoponente == 3) {
+                        basic.showIcon(IconNames.Sad)
+                    } else {
+                        if (mimano == 3 && manoponente == 1) {
+                            basic.showIcon(IconNames.Sad)
+                        } else {
+                            if (mimano == 3 && manoponente == 2) {
+                                basic.showIcon(IconNames.Happy)
+                            } else {
+                            	
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
+    basic.pause(2000)
+    basic.clearScreen()
 })
