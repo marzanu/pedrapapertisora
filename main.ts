@@ -4,14 +4,12 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 input.onButtonPressed(Button.A, function () {
     cuento = cuento + 1
-    cuento = cuento % 3
+    cuento = cuento % 1
     if (mimano == 1) {
         basic.showIcon(IconNames.SmallSquare)
-    }
-    if (mimano == 2) {
+    } else if (mimano == 2) {
         basic.showIcon(IconNames.Square)
-    }
-    if (mimano == 3) {
+    } else if (mimano == 3) {
         basic.showIcon(IconNames.Scissors)
     }
 })
