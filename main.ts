@@ -34,22 +34,22 @@ basic.forever(function () {
     if (manoponente == mimano) {
         basic.showIcon(IconNames.No)
     } else {
-        if (mimano == 1 && manoponente == 2) {
+        if (mimano == 0 && manoponente == 1) {
             basic.showIcon(IconNames.Sad)
         } else {
-            if (mimano == 1 && manoponente == 3) {
+            if (mimano == 0 && manoponente == 2) {
                 basic.showIcon(IconNames.Happy)
             } else {
-                if (mimano == 2 && manoponente == 1) {
+                if (mimano == 1 && manoponente == 0) {
                     basic.showIcon(IconNames.Happy)
                 } else {
-                    if (mimano == 2 && manoponente == 3) {
+                    if (mimano == 1 && manoponente == 2) {
                         basic.showIcon(IconNames.Sad)
                     } else {
-                        if (mimano == 3 && manoponente == 1) {
+                        if (mimano == 2 && manoponente == 0) {
                             basic.showIcon(IconNames.Sad)
                         } else {
-                            if (mimano == 3 && manoponente == 2) {
+                            if (mimano == 2 && manoponente == 1) {
                                 basic.showIcon(IconNames.Happy)
                             } else {
                             	
