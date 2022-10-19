@@ -5,16 +5,13 @@ radio.onReceivedNumber(function (receivedNumber) {
 input.onButtonPressed(Button.A, function () {
     cuento = cuento + 1
     cuento = cuento % 1
-    if (mimano == 1) {
+    if (mimano == 0) {
         basic.showIcon(IconNames.SmallSquare)
-    } else if (mimano == 2) {
+    } else if (mimano == 1) {
         basic.showIcon(IconNames.Square)
-    } else if (mimano == 3) {
+    } else if (mimano == 2) {
         basic.showIcon(IconNames.Scissors)
     }
-})
-radio.onReceivedString(function (receivedString) {
-    manoponente = 0
 })
 input.onButtonPressed(Button.B, function () {
     escogido = true
@@ -29,30 +26,32 @@ radio.setGroup(32)
 cuento = 0
 mimano = 0
 basic.forever(function () {
-    escogido = false
-    recibido = false
-    if (manoponente == mimano) {
-        basic.showIcon(IconNames.No)
-    } else {
-        if (mimano == 0 && manoponente == 1) {
-            basic.showIcon(IconNames.Sad)
+    if (escogido == true && recibido == true) {
+        recibido = false
+        escogido = false
+        if (manoponente == mimano) {
+            basic.showIcon(IconNames.No)
         } else {
-            if (mimano == 0 && manoponente == 2) {
-                basic.showIcon(IconNames.Happy)
+            if (mimano == 0 && manoponente == 1) {
+                basic.showIcon(IconNames.Sad)
             } else {
-                if (mimano == 1 && manoponente == 0) {
+                if (mimano == 0 && manoponente == 2) {
                     basic.showIcon(IconNames.Happy)
                 } else {
-                    if (mimano == 1 && manoponente == 2) {
-                        basic.showIcon(IconNames.Sad)
+                    if (mimano == 1 && manoponente == 0) {
+                        basic.showIcon(IconNames.Happy)
                     } else {
-                        if (mimano == 2 && manoponente == 0) {
+                        if (mimano == 1 && manoponente == 2) {
                             basic.showIcon(IconNames.Sad)
                         } else {
-                            if (mimano == 2 && manoponente == 1) {
-                                basic.showIcon(IconNames.Happy)
+                            if (mimano == 2 && manoponente == 0) {
+                                basic.showIcon(IconNames.Sad)
                             } else {
-                            	
+                                if (mimano == 2 && manoponente == 1) {
+                                    basic.showIcon(IconNames.Happy)
+                                } else {
+                                	
+                                }
                             }
                         }
                     }
@@ -60,6 +59,4 @@ basic.forever(function () {
             }
         }
     }
-    basic.pause(2000)
-    basic.clearScreen()
 })
